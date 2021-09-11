@@ -1,0 +1,25 @@
+var newyear = new Date("1 Jan 2022").getTime();
+
+var x = setInterval(function () {
+    var now = new Date().getTime();
+    var t = newyear - now;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((t % (1000 * 60)) / 1000);
+
+    console.log(seconds);
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    if (minutes < 10) {
+        document.getElementById("mins").innerHTML = "0" + minutes;
+    } else {
+        document.getElementById("mins").innerHTML = minutes;
+    }
+    if (seconds < 10) {
+        document.getElementById("secs").innerHTML = "0" + seconds;
+    } else {
+        document.getElementById("secs").innerHTML = seconds;
+    }
+
+}, 1000);
