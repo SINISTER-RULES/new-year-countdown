@@ -9,8 +9,16 @@ var x = setInterval(function () {
     var seconds = Math.floor((t % (1000 * 60)) / 1000);
 
     console.log(seconds);
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
+    if (days < 10) {
+        document.getElementById("days").innerHTML = "0" + days;
+    } else {
+        document.getElementById("days").innerHTML = days;
+    }
+    if (hours < 10) {
+        document.getElementById("hours").innerHTML = "0" + hours;
+    } else {
+        document.getElementById("hours").innerHTML = hours;
+    }
     if (minutes < 10) {
         document.getElementById("mins").innerHTML = "0" + minutes;
     } else {
