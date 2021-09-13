@@ -31,3 +31,26 @@ var x = setInterval(function () {
     }
 
 }, 1000);
+
+
+async function typeSentence(sentence, eleRef, delay = 100) {
+    const letters = sentence.split("");
+    let i = 0;
+    while (i < letters.length) {
+        await waitForMs(delay);
+        $(eleRef).append(letters[i]);
+        i++
+    }
+    return;
+}
+
+
+function waitForMs(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+
+setInterval(function caller() {
+    document.getElementById("headingletters").innerHTML = "";
+    typeSentence("NEW-YEAR COUNTDOWN", document.getElementById("headingletters"));
+}, 5000);
